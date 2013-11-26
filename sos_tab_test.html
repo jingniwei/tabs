@@ -1,0 +1,42 @@
+<!-- Example of how to use bootstrap tabs to toggle between div content -->
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+<!-- nav Tabs -->
+ <ul class="sos-nav-tab nav nav-tabs">
+    <li data-target-name="home"><a><h3>Home</h3></a></i>
+    <li data-target-name='profile' class='active'><a><h3>Profile</h3></a></li>
+    <li data-target-name='contact'><a><h3>Contact</h3></a></li>
+ </ul>
+ <!-- content of Tabs -->
+ <div class='sos-tab-content-container'>
+ 	<div data-target="home" class='hide '>Welcome Home</div>
+ 	<div data-target="profile" class='hide active'>Yes Profile Yes Yes</div>
+ 	<div data-target="contact" class='hide'>Contact Say Hi</div>
+ </div>
+
+<!-- js -->
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('.sos-tab-content-container').find('.active').show();
+		$('.sos-nav-tab li').click(function(){
+			var selectedContentTab = $(this);
+			var selectedContentTabId = selectedContentTab.data('targetName');
+			var navBar = $(this).parent();
+			var activeTab = navBar.find('.active');
+			var activeTabId = activeTab.data('targetName');
+			if(selectedContentTabId !== activeTabId){
+				activeTab.removeClass('active');
+				selectedContentTab.addClass('active');
+				$('.sos-tab-content-container').find('.active').hide();
+			    $('.sos-tab-content-container').find('.active').removeClass('active');
+			    console.log('change active tab ' + activeTabId +' to ' +selectedContentTabId );
+			    var selectedContent = $('.sos-tab-content-container').find('[data-target='+selectedContentTabId+']');
+			    console.log(selectedContent);
+			    selectedContent.addClass('active');
+			    selectedContent.show();
+			}
+		});
+	});
+</script>

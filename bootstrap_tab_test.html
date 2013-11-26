@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <ul class="nav nav-tabs" id="myTab">
+      <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+      <li><a href="#profile"  data-toggle="tab">Profile</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="home">This is the home tab</div>
+      <div class="tab-pane" id="profile">My Profile</div>
+    </div>
+
+    <script>
+    $(function () {
+      $('#myTab a').click(function () {
+        $(this).tab('show');
+      });
+    });
+    </script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
